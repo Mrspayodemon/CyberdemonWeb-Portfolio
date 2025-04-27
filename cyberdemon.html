@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CYBERDEMONWEB</title>
+    <!-- All-in-One CDN Links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --cyber-purple: #bc13fe;
+            --matrix-green: #0f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="%2300f3ff" stroke-width="2"/></svg>'), auto;
+        }
+
+        body {
+            background: #000;
+            color: var(--neon-blue);
+            font-family: 'Courier New', monospace;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .cyber-border {
+            border: 3px solid var(--neon-blue);
+            box-shadow: 0 0 15px var(--neon-blue);
+            position: relative;
+            padding: 2rem;
+            margin: 2rem;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .cyber-glitch {
+            animation: glitch 2s infinite;
+            text-align: center;
+            font-size: 3em;
+        }
+
+        .cyber-card {
+            border: 1px solid var(--cyber-purple);
+            padding: 1rem;
+            margin: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .cyber-card:hover {
+            transform: rotate3d(1, 1, 1, 10deg) scale(1.1);
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 3px 0 var(--cyber-purple), -3px 0 var(--matrix-green); }
+            100% { text-shadow: -3px 0 var(--cyber-purple), 3px 0 var(--matrix-green); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .cyber-border {
+                margin: 1rem;
+                padding: 1rem;
+            }
+            .cyber-glitch {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function CyberPortfolio() {
+            const [projects] = React.useState([
+                { id: 1, name: 'Neural Network Interface', tech: 'React/AI' },
+                { id: 2, name: 'Quantum Crypto System', tech: 'Blockchain/JS' }
+            ]);
+
+            return (
+                <div className="cyber-border">
+                    <h1 className="cyber-glitch">CYBERDEMONWEB</h1>
+                    <div className="hacker-terminal">
+                        <p>> INITIALIZING SYSTEM...</p>
+                        <p>> WELCOME TO THE DIGITAL ABYSS</p>
+                    </div>
+                    
+                    <section className="cyber-grid">
+                        {projects.map(project => (
+                            <div key={project.id} className="cyber-card">
+                                <h3>{project.name}</h3>
+                                <p>{project.tech}</p>
+                            </div>
+                        ))}
+                    </section>
+                    
+                    <!-- Client-Side Contact Form -->
+                    <form id="cyberForm" className="cyber-form">
+                        <input type="email" placeholder="Enter quantum mail" required />
+                        <button type="submit">Transmit</button>
+                    </form>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<CyberPortfolio />, document.getElementById('root'));
+    </script>
+
+    <script>
+        // Enhanced Particle System
+        class CyberParticle {
+            constructor(canvas) {
+                this.canvas = canvas;
+                this.ctx = canvas.getContext('2d');
+                this.particles = [];
+                this.init();
+            }
+
+            init() {
+                // Particle creation logic
+            }
+
+            animate() {
+                // Animation loop
+            }
+        }
+
+        // Initialize canvas
+        const canvas = document.createElement('canvas');
+        canvas.style.position = 'fixed';
+        canvas.style.top = 0;
+        canvas.style.left = 0;
+        canvas.style.zIndex = -1;
+        document.body.prepend(canvas);
+        new CyberParticle(canvas);
+
+        // Form handling
+        document.getElementById('cyberForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Message transmitted to cyberverse!');
+        });
+    </script>
+</body>
+</html>
